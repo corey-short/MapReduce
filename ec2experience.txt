@@ -1,0 +1,137 @@
+How long did each of the six runs take? How many mappers and how many reducers did you use?
+
+			freedom-0 s2005 combiner-off 5 EC2
+
+Total time taken (sum of first and second job):
+	11 min 41 sec.
+	
+The number of mappers and reducers used for each job:
+	map tasks job1: 80
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce taks job2: 1
+	Total mappers used: 112
+	Total reducers used: 33
+	Total number of mappers and reducers used: 145
+
+The size of the input (S3N_BYTES_READ):
+	5,112,854,716 bytes.
+	
+			freedom-0 s2005 combiner-on 5 EC2
+	
+Total time taken (sum of first and second job):
+	5 min 14 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 80
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce taks job2: 1
+	Total mappers used: 112
+	Total reducers used: 33
+	Total number of mappers and reducers used: 145
+
+The size of the input (S3N_BYTES_READ):
+	5,112,859,953 bytes.
+
+			capital-0 s2006 combiner-on 5 EC2
+
+Total time taken (sum of first and second job):
+	15 min 39 sec.
+
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+	Total mappers used: 348
+	Total reducers used: 33
+	Total number of mappers and reducers used: 381
+
+The size of the input (S3N_BYTES_READ):
+	19,139,802,350 bytes
+
+			capital-0 s2006 combiner-on 9 EC2
+
+Total time taken (sum of first and second job):
+	9 min 34 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+	Total mappers used: 348
+	Total reducers used: 33
+	Total number of mappers and reducers used: 381
+
+The size of the input (S3N_BYTES_READ):
+	19,141,910,363 bytes
+
+			landmark-1 s2006 combiner-on 9 EC2
+
+Total time taken (sum of first and second job):
+	9 min 33 sec.
+	
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+	Total mappers used: 348
+	Total reducers used: 33
+	Total number of mappers and reducers used: 381
+
+The size of the input (S3N_BYTES_READ):
+	19,141,844,728 bytes
+
+			monument-2 s2006 combiner-on 9 EC2
+
+Total time taken (sum of first and second job):
+	9 min 13 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+	Total mappers used: 348
+	Total reducers used: 33
+	Total number of mappers and reducers used: 381
+
+The size of the input (S3N_BYTES_READ):
+	19,139,802,381 bytes
+
+
+For the two runs with (freedom, 0), how much faster did your code run on the 5 workers with the combiner turned on than with the combiner turned off? Express your answer as a percentage.
+
+	freedom-0-off: 767 sec.
+	freedom-0-on: 314 sec.
+	times faster: (767 sec / 314 sec - 1) * 100% = 144% times faster.
+
+For the runs on the 2006 dataset, what was the median processing rate per GB (= 2^30 bytes) of input for the tests using 5 workers? Using 9 workers? 
+	
+	Median processing rates:
+
+	capital-0-5 EC2: 19,139,802,350 bytes / (2^30 * 939 sec) = 0.0190 GB/sec.
+	capital-0-9 EC2: 19,141,910,363 bytes / (2^30 * 574 sec) = 0.0312 GB/sec.
+	landmark: 19,141,844,728 bytes / (2^30 * 573) = 0.0311 GB/sec.
+	monument: 19,139,802,381 bytes / (2^30 * 553) = 0.0322 GB/sec.
+
+What was the percent speedup of running (capital, 0) with 9 workers over 5 workers? What is the maximum possible speedup, assuming your code is fully parallelizable? How well, in your opinion, does Hadoop parallelize your code? Justify your answer in 1-2 sentences.
+
+	percent speedup: (939 sec / 574 sec - 1) * 100% = 63.59%. 
+	maximum possible speedup: (9 workers / 5 workers - 1) * 100% = 80%.
+	It does a solid job parallelizing my code; however, I think the speedup could be better. 
+	In lab3 we ran the same job with 10 workers and with 5 workers and we experienced strong
+	scaling. Double the amount of workers and reduce the processing time in half. This is not
+	the case in this project with my data. 
+
+For a single run on the 2006 dataset, what was the price per GB processed on with 5 workers? With 9 workers? (Recall that an extra-large instance costs $0.58 per hour, rounded up to the nearest hour.)
+
+	5 EC2: (1 sec / .0190 GB)*(.58*5 $ / 1 hr)*(1 hr / 3600 sec) = 0.0424 $/GB or 4.24 cents/GB
+	9 EC2: (1 sec / .0312 GB)*(.58*9 $ / 1 hr)*(1 hr / 3600 sec) = 0.0465 $/GB or 4.26 cents/GB
+
+How much total money did you use to complete this project?
+	Total cost roughly: .58 * 5 * 4 + .58 * 9 * 6 = $43.50.

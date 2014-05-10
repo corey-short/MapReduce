@@ -1,0 +1,97 @@
+			freedom-0 s2005 combiner-off 5 EC2
+
+Total time taken (sum of first and second job):
+	11 min 41 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 80
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce taks job2: 1
+	Total mappers used: 112
+	Total reducers used: 33
+	Total number of mappers and reducers used: 145
+	
+The size of the input (S3N_BYTES_READ):
+	5,112,854,716 bytes.
+
+			freedom-0 s2005 combiner-on 5 EC2
+
+Total time taken (sum of first and second job):
+	5 min 14 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 80
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce taks job2: 1
+	Total mappers used: 112
+	Total reducers used: 33
+	Total number of mappers and reducers used: 145
+
+
+The size of the input (S3N_BYTES_READ):
+	5,112,859,953.
+
+			capital-0 s2006 combiner-on 5 EC2
+
+Total time taken (sum of first and second job):
+	15 min 39 sec.
+
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+
+The size of the input (S3N_BYTES_READ):
+	19,139,802,350 bytes
+
+			capital-0 s2006 combiner-on 9 EC2
+
+Total time taken (sum of first and second job):
+	9 min 34 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+
+The size of the input (S3N_BYTES_READ):
+	19,141,910,363 bytes
+
+
+		landmark-1 s2006 combiner-on 9 EC2
+
+Total time taken (sum of first and second job):
+	9 min 33 sec.
+	
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+	
+The size of the input (S3N_BYTES_READ):
+	19,141,844,728 bytes
+
+		monument-2 s2006 combiner-on 9 EC2
+
+Total time taken (sum of first and second job):
+	9 min 13 sec.
+
+The number of mappers and reducers used for each job:
+	map tasks job1: 316
+	reduce tasks job1: 32
+	map tasks job2: 32
+	reduce tasks job2: 1
+
+The size of the input (S3N_BYTES_READ):
+	19,139,802,381 bytes
+
+
+
+
+
